@@ -1,0 +1,18 @@
+{
+  "watch":  "**/**.html",
+  "reload": "**/**.html",
+  "mount": [
+    {
+      "path":   "modules/",
+      "target": "/"
+    }
+  ],
+  "inject": [
+    {
+      "content": "before-body.html",
+      "which":   "**/**.html",
+      "where":   "</body>",
+      "prepend": true
+    }
+  ]
+}

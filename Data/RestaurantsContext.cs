@@ -17,5 +17,13 @@ namespace Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserReview> UserReviews { get; set; }
 
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Address>().Property(a => a.Latitude).HasPrecision(18, 9);
+            modelBuilder.Entity<Address>().Property(a => a.Longitude).HasPrecision(18, 9);
+        }
     }
+
+
 }

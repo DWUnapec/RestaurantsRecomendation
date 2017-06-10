@@ -19,9 +19,9 @@ namespace RestaurantsRecomendation.Controllers
         private RestaurantsContext db = new RestaurantsContext();
 
         // GET: api/Restaurants
-        public IQueryable<Restaurant> GetRestaurants()
+        public HttpResponseMessage GetRestaurants()
         {
-            return db.Restaurants;
+           return Request.CreateResponse(HttpStatusCode.OK, db.Restaurants);
         }
 
         // GET: api/Restaurants/5
@@ -80,7 +80,7 @@ namespace RestaurantsRecomendation.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+          
             db.Restaurants.Add(restaurant);
             await db.SaveChangesAsync();
 

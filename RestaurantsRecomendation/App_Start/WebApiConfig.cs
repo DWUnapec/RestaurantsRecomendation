@@ -19,6 +19,8 @@ namespace RestaurantsRecomendation
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.Add(new App_Start.BrowserJsonFormatter());
         }
     }
 }

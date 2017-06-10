@@ -1,0 +1,17 @@
+<div class=" demo-charts mdl-color--white mdl-shadow--2dp mdl-grid mdl-cell--12-col">
+    <div class=" mdl-cell mdl-cell--9-col">
+        <leaflet id="detailMap" markers="vm.markers" defaults="vm.defaults" lf-center="vm.center" height="480px" width="100%"></leaflet>
+    </div>
+
+    <div class=" mdl-cell mdl-cell--3-col">
+        <input ng-model="vm.restaurant.name" mdl-text-field type="text" placeholder="Nombre" />
+        <textarea ng-model="vm.restaurant.address.city" name="" mdl-text-field placeholder="Direccion"></textarea>
+        <input ng-model="vm.restaurant.minPrice" mdl-text-field type="text" placeholder="Precio Minimo" />
+        <input ng-model="vm.restaurant.maxPrice" mdl-text-field type="text" placeholder="Precio Maximo" />
+        <input mdl-text-field ng-model="vm.restaurant.phoneNumber" type="text" placeholder="Numero de Telefono" />
+        <br>
+        <mdl-button-raised ng-click="vm.add(vm.restaurant)" theme="accent">Guardar</mdl-button-raised>
+    </div>
+
+</div>
+<span ng-show="false" ng-init="vm.update()"></span>

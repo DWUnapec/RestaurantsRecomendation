@@ -19,16 +19,16 @@ namespace RestaurantsRecomendation.Controllers
         private RestaurantsContext db = new RestaurantsContext();
 
         // GET: api/Restaurants
-        public HttpResponseMessage GetRestaurants()
+        public IHttpActionResult GetRestaurants()
         {
-           return Request.CreateResponse(HttpStatusCode.OK, db.Restaurants);
+            return   Ok(db.Restaurants.Include("Address").Include("RestaurantType").Include("FoodType").ToList());
         }
 
         // GET: api/Restaurants/5
         [ResponseType(typeof(Restaurant))]
         public async Task<IHttpActionResult> GetRestaurant(int id)
         {
-            Restaurant restaurant = await db.Restaurants.FindAsync(id);
+            Restaurant restaurant = await db.Restaurants.Include("Address").Include("RestaurantType").Include("FoodType").FirstOrDefaultAsync(x=>x.Id ==id);
             if (restaurant == null)
             {
                 return NotFound();

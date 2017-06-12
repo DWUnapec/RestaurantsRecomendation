@@ -18,7 +18,7 @@
             this.minPrice = data.minPrice;
             this.maxPrice = data.maxPrice;
             this.phoneNumber = data.phoneNumber;
-            this.latlng = [data.address.latitude, data.address.longitude];
+            this.latlng = { lat: data.address.latitude, lng: data.address.longitude };
         }
         return Restaurant;
 

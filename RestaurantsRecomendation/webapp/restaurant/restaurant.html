@@ -6,6 +6,17 @@
     <div class=" mdl-cell mdl-cell--3-col">
         <input ng-model="vm.restaurant.name" mdl-text-field type="text" placeholder="Nombre" />
         <textarea ng-model="vm.restaurant.address.city" name="" mdl-text-field placeholder="Direccion"></textarea>
+        <label for="restType">Tipo de Restaurante</label><br />     
+        <select name="restType">
+            <option value="1">Comida Rapida</option>
+            <option value="1">Comida China</option>
+        </select>
+        <br />
+        <label for="restType">Tipo de Comida</label><br />
+        <select name="restType">
+            <option value="1">Pizza</option>
+            <option value="2">Hamburguesas</option>
+        </select>
         <input ng-model="vm.restaurant.minPrice" mdl-text-field type="text" placeholder="Precio Minimo" />
         <input ng-model="vm.restaurant.maxPrice" mdl-text-field type="text" placeholder="Precio Maximo" />
         <input mdl-text-field ng-model="vm.restaurant.phoneNumber" type="text" placeholder="Numero de Telefono" />

@@ -8,7 +8,7 @@
     RestaurantsService.inject = ['Restaurant', '$q','$http'];
     function RestaurantsService(Restaurant, $q, $http) {
 
-        var END_POINT = 'api/restaurants'
+        var END_POINT = 'api/restaurants/'
         var restaurantTypes = [{id:1, name:"FastFood"},{id:2,name:"Chinese"}];
         var foodTypes = [{id:1,name:"Fried"},{id:2,name:"Burger"},{id:3,name:"Pizza"},{id:3,name:"Traditional"}];
         var addresses= [
@@ -28,13 +28,15 @@
         return service;
 
         ////////////////
-        function get() {
+        function get(id) {
+            console.log(id)
             console.log('get')
             var defer = $q.defer();
-            var request = { url: END_POINT, method: 'GET'};
+            var url = id ? (END_POINT + id) : END_POINT; 
+            var request = { url: url, method: 'GET'};
             $http(request).then(function (res) {
+                if (id) { defer.resolve(new Restaurant(res.data)); return;}
                 var restaurants = res.data.map(function (x) { return new Restaurant(x) });
-
                 defer.resolve(restaurants);
             });
 

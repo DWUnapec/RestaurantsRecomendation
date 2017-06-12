@@ -50,10 +50,10 @@
         ////////////////
 
         function activate() {
-            if (vm.id) {
-                RestaurantsService.get().then(function (restaurants) {
+            if (vm.id >0) {
+                RestaurantsService.get(vm.id).then(function (restaurant) {
                     $timeout(function () {
-                        vm.restaurant = restaurants[vm.id - 1];
+                        vm.restaurant = restaurant;
                         updateMarker();
 
                     }, 0)

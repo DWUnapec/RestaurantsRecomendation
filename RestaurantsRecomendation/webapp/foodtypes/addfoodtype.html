@@ -1,0 +1,30 @@
+﻿<md-dialog>
+    <form ng-cloak="">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Agregar tipo de comida</h2><span flex=""></span>
+                <md-button ng-click="cancel()" class="md-icon-button">
+                    <md-icon md-font-set="material-icons"> close </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout-gt-sm="row">
+                    <md-input-container flex="45" class="md-block">
+                        <label>Nombre</label>
+                        <input ng-model="foodType.name" />
+                    </md-input-container>
+                    <md-input-container flex="45" class="md-block">
+                        <label>Descripcion</label>
+                        <input ng-model="foodType.description" />
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="save()">Guardar</md-button>
+            <md-button ng-click="cancel()">Cancelar</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

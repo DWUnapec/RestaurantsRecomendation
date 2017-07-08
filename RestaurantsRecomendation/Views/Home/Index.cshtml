@@ -4,6 +4,13 @@
 <script type="text/javascript" src="~/webapp/app.module.js"></script>
 <script type="text/javascript" src="~/webapp/app.controller.js"></script>
 <script type="text/javascript" src="~/webapp/app.route.js"></script>
+
+<script src="~/webapp/common/service/foodtype.service.js"></script>
+<script src="~/webapp/common/service/restauranttype.service.js"></script>
+
+<script src="~/webapp/foodtypes/foodtypes.js"></script>
+<script src="~/webapp/restaurantstypes/restauranttypes.js"></script>
+
 <script type="text/javascript" src="~/webapp/restaurants/restaurants.js"></script>
 <script type="text/javascript" src="~/webapp/restaurant/restaurant.js"></script>
 
@@ -12,9 +19,9 @@
 
 
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <header  ng-controller="AppCtrl as vm"  class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Home</span>
+            <span class="mdl-layout-title">{{vm.pageTitle}}</span>
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                 <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -39,21 +46,21 @@
         <header class="demo-drawer-header">
              <img src="~/Content/images/user.jpg" class="demo-avatar">
             <div class="demo-avatar-dropdown">
-                <span>hello@example.com</span>
+                <span>@ViewBag.UserName</span>
                 <div class="mdl-layout-spacer"></div>
                 <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                     <i class="material-icons" role="presentation">arrow_drop_down</i>
                     <span class="visuallyhidden">Accounts</span>
                 </button>
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                    <li class="mdl-menu__item">hello@example.com</li>
-                    <li class="mdl-menu__item">info@example.com</li>
-                    <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-                </ul>
+                    <li class="mdl-menu__item">@ViewBag.UserName</li>
+                 </ul>
             </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-            <a class="mdl-navigation__link" ui-sref="restaurants"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Restaurantes</a>
+            <a class="mdl-navigation__link" ui-sref="restaurants"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">store_mall_directory</i>Restaurantes</a>
+            <a class="mdl-navigation__link" ui-sref="restauranttypes"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_dining</i>Tipos </a>
+            <a class="mdl-navigation__link" ui-sref="foodtypes"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_dining</i>Comidas</a>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Perfil</a>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Salir</a>
 

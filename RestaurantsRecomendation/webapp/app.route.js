@@ -10,7 +10,7 @@
                         templateUrl: 'webapp/restaurants/restaurants.html'
                     }
                 },
-                data: {pageTitle: 'Home'}
+                data: {pageTitle: 'Restaurantes'}
             });
                 $stateProvider.state('restaurant', {
                 url: '/restaurant/:id',
@@ -20,9 +20,29 @@
                         templateUrl: 'webapp/restaurant/restaurant.html'
                     }
                 },
-                data: {pageTitle: 'Home'}
+                data: {pageTitle: 'Restaurante'}
+                });
+                $stateProvider.state('restauranttypes', {
+                    url: '/restauranttypes',
+                    views: {
+                        "main": {
+                            controller: 'RestaurantTypesController as vm',
+                            templateUrl: 'webapp/restaurantstypes/restauranttypes.html'
+                        }
+                    },
+                    data: { pageTitle: 'Tipo de Restaurantes' }
                 });
 
+                $stateProvider.state('foodtypes', {
+                    url: '/foodtypes',
+                    views: {
+                        "main": {
+                            controller: 'FoodTypesController as vm',
+                            templateUrl: 'webapp/foodtypes/foodtypes.html'
+                        }
+                    },
+                    data: { pageTitle: 'Tipos de Comida' }
+                });
                 $urlRouterProvider.otherwise('/restaurants');
 
         }])

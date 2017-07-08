@@ -22,7 +22,9 @@
  
         var service = {
             get: get,
-            add : add
+            add: add,
+            update: update,
+            remove : remove
         };
         
         return service;
@@ -47,13 +49,43 @@
 
         function add(restaurant) {
             var defer = $q.defer();
-            var request = {url:END_POINT,method: 'POST', data: restaurant};
+            var data = angular.copy(restaurant);
+
+            data.foodType = undefined;
+            data.restaurantType = undefined;
+            data.foodTypeId = restaurant.foodType.id;
+            data.restaurantTypeId = restaurant.restaurantType.id;
+            var request = {url:END_POINT,method: 'POST', data: data};
             $http(request).then(function (res) {
                 defer.resolve(res.data);
             });
              return defer.promise;
 
         }
+
+
+        function update(item) {
+            var defer = $q.defer();
+            var data = angular.copy(item);
+     
+            data.foodType = undefined;
+            data.restaurantType = undefined;
+            data.foodTypeId = item.foodType.id;
+            data.restaurantTypeId = item.restaurantType.id;
+            $http.put(END_POINT + data.id, data).then(function (res) {
+                defer.resolve(item);
+            })
+            return defer.promise;
+        }
+
+        function remove(id) {
+            var defer = $q.defer();
+            $http.delete(END_POINT + id, ).then(function (res) {
+                defer.resolve(res.data);
+            })
+            return defer.promise;
+        }
+
     }
 })();
 

@@ -3,26 +3,50 @@
         <leaflet id="detailMap" markers="vm.markers" defaults="vm.defaults" lf-center="vm.center" height="480px" width="100%"></leaflet>
     </div>
 
-    <div class=" mdl-cell mdl-cell--3-col">
-        <input ng-model="vm.restaurant.name" mdl-text-field type="text" placeholder="Nombre" />
-        <textarea ng-model="vm.restaurant.address.city" name="" mdl-text-field placeholder="Direccion"></textarea>
-        <label for="restType">Tipo de Restaurante</label><br />     
-        <select name="restType">
-            <option value="1">Comida Rapida</option>
-            <option value="1">Comida China</option>
-        </select>
-        <br />
-        <label for="restType">Tipo de Comida</label><br />
-        <select name="restType">
-            <option value="1">Pizza</option>
-            <option value="2">Hamburguesas</option>
-        </select>
-        <input ng-model="vm.restaurant.minPrice" mdl-text-field type="text" placeholder="Precio Minimo" />
-        <input ng-model="vm.restaurant.maxPrice" mdl-text-field type="text" placeholder="Precio Maximo" />
-        <input mdl-text-field ng-model="vm.restaurant.phoneNumber" type="text" placeholder="Numero de Telefono" />
-        <br>
-        <mdl-button-raised ng-click="vm.add(vm.restaurant)" theme="accent">Guardar</mdl-button-raised>
-    </div>
+    <div layout-gt-sm="column" id="restaurant-fields">
+        <md-input-container   class="md-block">
+            <label>Nombre</label>
+            <input ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.name" />
+        </md-input-container>
+        <md-input-container   class="md-block">
+            <label>Direccion</label>
+            <input ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.address.city" />
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Tipo de Restaurante</label>
+            <md-select ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.restaurantType.id">
+                <md-option ng-repeat="restaurantType in vm.restaurantTypes" ng-value="restaurantType.id">
+                    {{restaurantType.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Tipo de Comida</label>
+            <md-select ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.foodType.id" >
+                <md-option ng-repeat="foodType in vm.foodTypes" ng-value="foodType.id">
+                    {{foodType.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+ 
+        <md-input-container class="md-block">
+            <label>Precio Minimo</label>
+            <input ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.minPrice" />
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Precio Maximo</label>
+            <input ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.maxPrice" />
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Numero de Telefono</label>
+            <input ng-disabled ="vm.isDisabled" ng-model="vm.restaurant.phoneNumber" />
+        </md-input-container>
+        <md-button ng-if="vm.id>0" ng-click="vm.remove()" class="md-raised md-warn">Eliminar</md-button>
 
+    </div>
 </div>
 <span ng-show="false" ng-init="vm.update()"></span>
+<md-button  ng-click="vm.toggleEdit()" class="md-fab md-primary md-fab-bottom-right" aria-label="Use Android">
+    <md-icon md-font-set="material-icons"> {{vm.isDisabled? 'edit':'save'}} </md-icon>
+</md-button>
+ 

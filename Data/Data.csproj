@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201706101826503_change_location_datatype_in_address.Designer.cs">
       <DependentUpon>201706101826503_change_location_datatype_in_address.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706120004085_x.cs" />
+    <Compile Include="Migrations\201706120004085_x.Designer.cs">
+      <DependentUpon>201706120004085_x.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantsContext.cs" />
@@ -75,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706101826503_change_location_datatype_in_address.resx">
       <DependentUpon>201706101826503_change_location_datatype_in_address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120004085_x.resx">
+      <DependentUpon>201706120004085_x.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

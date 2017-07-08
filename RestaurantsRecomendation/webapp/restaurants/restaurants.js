@@ -57,10 +57,6 @@
             newMarker.bindPopup(popUpTemplate);
         }
 
-
-        $scope.$on('leafletDirectiveMap.click', function (event, args) {
-            addMarker(args.leafletEvent.latlng);
-            console.log("clicked");
-        });
+ 
     }
 })();

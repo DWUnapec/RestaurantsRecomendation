@@ -9,6 +9,7 @@
         'app.controllers',
         'nemLogging',
         'ui-leaflet',
+        'ngMaterial',
         'mdl'
     ]);
 })();

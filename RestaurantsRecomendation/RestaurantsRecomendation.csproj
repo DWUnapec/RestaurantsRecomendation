@@ -211,6 +211,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706101424251_InitialCreate.cs" />
+    <Compile Include="Migrations\201706101424251_InitialCreate.Designer.cs">
+      <DependentUpon>201706101424251_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -218,18 +223,33 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
     <Content Include="Scripts\angular-material-design-lite\dist\angular-material-design-lite.js" />
     <Content Include="Scripts\angular-material-design-lite\dist\angular-material-design-lite.min.js" />
     <Content Include="Scripts\angular-material-design-lite\examples\index.html" />
     <Content Include="Scripts\angular-material-design-lite\gulpfile.js" />
     <Content Include="Scripts\angular-material-design-lite\server.js" />
     <Content Include="Scripts\angular-material-design-lite\src\angular-material-design-lite.js" />
+    <Content Include="Scripts\angular-material-mocks.js" />
+    <Content Include="Scripts\angular-material.js" />
+    <Content Include="Scripts\angular-material.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-simple-logger\dist\angular-simple-logger.js" />
     <Content Include="Scripts\angular-simple-logger\dist\angular-simple-logger.light.js" />
     <Content Include="Scripts\angular-simple-logger\dist\angular-simple-logger.light.min.js" />
@@ -247,6 +267,8 @@
     <Content Include="Scripts\angular-ui-router\release\ui-router-angularjs.js" />
     <Content Include="Scripts\angular-ui-router\release\ui-router-angularjs.min.js" />
     <Content Include="Scripts\angular-ui-router\rollup.config.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular\angular-csp.css" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
@@ -292,6 +314,28 @@
     <Content Include="Scripts\angular-ui-router\release\stateEvents.min.js.map" />
     <Content Include="Scripts\angular-ui-router\release\ui-router-angularjs.js.map" />
     <Content Include="Scripts\angular-ui-router\release\ui-router-angularjs.min.js.map" />
+    <Content Include="webapp\app.controller.js" />
+    <Content Include="webapp\app.module.js" />
+    <Content Include="webapp\app.route.js" />
+    <Content Include="webapp\before-body.html" />
+    <Content Include="webapp\common\model\restaurant.js" />
+    <Content Include="webapp\common\service\foodtype.service.js" />
+    <Content Include="webapp\common\service\restaurants.service.js" />
+    <Content Include="webapp\common\service\restauranttype.service.js" />
+    <Content Include="webapp\foodtypes\addfoodtype.html" />
+    <Content Include="webapp\foodtypes\foodtypes.html" />
+    <Content Include="webapp\foodtypes\foodtypes.js" />
+    <Content Include="webapp\index.html" />
+    <Content Include="webapp\restaurantstypes\addrestauranttype.html" />
+    <Content Include="webapp\restaurantstypes\restauranttypes.html" />
+    <Content Include="webapp\restaurantstypes\restauranttypes.js" />
+    <Content Include="webapp\restaurants\restaurants.html" />
+    <Content Include="webapp\restaurants\restaurants.js" />
+    <Content Include="webapp\restaurant\restaurant.html" />
+    <Content Include="webapp\restaurant\restaurant.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -619,6 +663,11 @@
       <Project>{7de34145-3490-4270-a513-49595cae0cdd}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706101424251_InitialCreate.resx">
+      <DependentUpon>201706101424251_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

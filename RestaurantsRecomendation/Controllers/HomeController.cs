@@ -8,15 +8,17 @@ namespace RestaurantsRecomendation.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
+            ViewBag.UserName = User.Identity.Name;
+
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 

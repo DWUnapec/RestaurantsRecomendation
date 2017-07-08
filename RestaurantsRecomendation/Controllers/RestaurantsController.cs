@@ -91,12 +91,12 @@ namespace RestaurantsRecomendation.Controllers
         [ResponseType(typeof(Restaurant))]
         public async Task<IHttpActionResult> DeleteRestaurant(int id)
         {
-            Restaurant restaurant = await db.Restaurants.FindAsync(id);
+            Restaurant restaurant = await db.Restaurants.Include("Address").FirstAsync(x=>x.Id == id);
             if (restaurant == null)
             {
                 return NotFound();
             }
-
+            db.Addresses.Remove(restaurant.Address);
             db.Restaurants.Remove(restaurant);
             await db.SaveChangesAsync();
 

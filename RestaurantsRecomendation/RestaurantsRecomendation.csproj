@@ -52,9 +52,13 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NReco.Recommender, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a9abe3bdfd6b1a7f, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.Recommender.1.0.1\lib\net40\NReco.Recommender.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -209,6 +213,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\RestaurantTypesController.cs" />
+    <Compile Include="Controllers\UserRecomendationController.cs" />
     <Compile Include="Controllers\UserReviewsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -217,6 +222,10 @@
     <Compile Include="Migrations\201706101424251_InitialCreate.cs" />
     <Compile Include="Migrations\201706101424251_InitialCreate.Designer.cs">
       <DependentUpon>201706101424251_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707080240152_add_food_service_rating.cs" />
+    <Compile Include="Migrations\201707080240152_add_food_service_rating.Designer.cs">
+      <DependentUpon>201707080240152_add_food_service_rating.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -349,6 +358,7 @@
     <Content Include="DataCsv\usercuisine.csv" />
     <Content Include="DataCsv\userpayment.csv" />
     <Content Include="DataCsv\userprofile.csv" />
+    <Content Include="DataCsv\coords.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

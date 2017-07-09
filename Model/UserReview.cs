@@ -14,6 +14,8 @@ namespace Model
         public User User { get; set; }
         public Restaurant Restaurant { get; set; }
         public double Rating { get; set; }
+        public double FoodRating { get; set; }
+        public double ServiceRating { get; set; }
         public DateTime Date { get; set; }
         public string Comment { get; set; }
 

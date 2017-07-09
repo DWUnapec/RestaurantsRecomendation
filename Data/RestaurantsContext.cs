@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,17 @@ namespace Data
         {
             modelBuilder.Entity<Address>().Property(a => a.Latitude).HasPrecision(18, 9);
             modelBuilder.Entity<Address>().Property(a => a.Longitude).HasPrecision(18, 9);
-        }
+
+            modelBuilder.Entity<Restaurant>()
+             .Property(e => e.Id)
+             .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            modelBuilder.Entity<User>()
+           .Property(e => e.Id)
+           .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            base.OnModelCreating(modelBuilder);
+         }
+        
     }
 
 
